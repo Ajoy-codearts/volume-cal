@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .wraper {
+        width: 300px;
+        height: 150px;
+        background-color: skyblue;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .display {
+        width: 60px;
+    }
+
+    .calculate_item1 {
+        width: 72px;
+        background-color: yellowgreen;
+    }
+
+    .calculate_item2 {
+        width: 72px;
+        background-color: rgb(88, 109, 47);
+    }
+
+    .calculate_item3 {
+        width: 72px;
+        background-color: rgb(49, 65, 17);
+    }
+</style>
+
+<body>
+    <div class="wraper">
+        <div class="display">
+            total
+            <p id="display_bx"></p>
+        </div>
+        <div class="calculate_item1 box">
+            <button class="decrease">decrease</button>
+            <button class="increase">increase</button>
+            cost=<p class="initial_cost" id="test">5</p>
+            item=<p class="count" id="item_count"></p>
+        </div>
+        <div class="calculate_item2 box">
+            <button class="decrease">decrease</button>
+            <button class="increase">increase</button>
+            cost=<p class="initial_cost">15</p>
+            item= <p class="count" id="item_count2"></p>
+        </div>
+        <div class="calculate_item3 box">
+            <button class="decrease">decrease</button>
+            <button class="increase">increase</button>
+            cost=<p class="initial_cost">20</p>
+            item= <p class="count" id="item_count2"></p>
+        </div>
+    </div>
+</body>
+<script>
+
+
+    var sum = 0; var count = 0;
+    var counter = new Array();
+
+
+
+    var box = document.querySelectorAll('.box');
+    for (let i = 0; i < box.length; i++) {
+        counter[i]=0;
+
+        var i_btn = box[i].querySelector('.increase');
+        i_btn.addEventListener('click', () => {
+           counter[i]=counter[i]+1;
+            var c = parseInt(box[i].querySelector('.initial_cost').textContent);
+            console.log(sum = sum + c);
+            console.log(counter[i]);
+          
+        })
+
+
+
+
+
+        var d_btn = box[i].querySelector('.decrease');
+        d_btn.addEventListener('click', () => {
+
+            var c = parseInt(box[i].querySelector('.initial_cost').textContent);
+
+            if(counter[i]>0){
+                console.log(sum = sum - c);
+                counter[i]=counter[i]-1;
+                console.log(counter[i]);
+            }
+
+            
+            
+        })
+    }
+
+   
+
+</script>
+
+</html>
